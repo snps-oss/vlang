@@ -1,0 +1,6 @@
+[submodule "llvm"]
+	path = llvm
+	url = https://github.com/snps-oss/llvm.git
+[submodule "clang"]
+	path = clang
+	url = https://github.com/snps-oss/clang.git
