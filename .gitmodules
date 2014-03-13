@@ -1,3 +1,6 @@
+[submodule "wiki"]
+	path = wiki
+	url = https://github.com/snps-oss/vlang.wiki.git
 [submodule "llvm"]
 	path = llvm
 	url = https://github.com/snps-oss/llvm.git
