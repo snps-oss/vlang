@@ -13,15 +13,12 @@
 ///
 //===----------------------------------------------------------------------===//
 
-
-#include <iostream>
-#include "vlang/Basic/Version.h"
-//#include "vlang/Basic/Diagnostic.h"
 #include "llvm/ADT/StringMap.h"
 #include "llvm/Support/CommandLine.h"
-#include "llvm/Support/Signals.h"
 #include "llvm/Support/FileSystem.h"
+#include "llvm/Support/Signals.h"
 #include "llvm/Support/raw_ostream.h"
+#include "vlang/Basic/Version.h"
 
 using namespace llvm;
 
@@ -40,7 +37,7 @@ int main(int argc, const char **argv) {
   llvm::sys::PrintStackTraceOnErrorSignal();
 
   // Hide unrelated options.
-  StringMap<cl::Option*> Options;
+  StringMap<cl::Option *> Options;
   cl::getRegisteredOptions(Options);
   for (StringMap<cl::Option *>::iterator I = Options.begin(), E = Options.end();
        I != E; ++I) {
@@ -70,7 +67,6 @@ int main(int argc, const char **argv) {
   //   llvm::outs() << Config << "\n";
   //   return 0;
   // }
-
 }
 
 #if 0
