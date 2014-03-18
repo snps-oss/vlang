@@ -28,6 +28,12 @@ static cl::opt<bool> Help("h", cl::desc("Alias for -help"), cl::Hidden);
 // and -help) will be hidden.
 static cl::OptionCategory VlangFormatCategory("Vlang-format options");
 
+static cl::opt<bool>
+DumpConfig("dump-config",
+           cl::desc("Dump configuration options to stdout and exit.\n"
+                    "Can be used with -style option."),
+           cl::cat(VlangFormatCategory));
+
 static void PrintVersion() {
   raw_ostream &OS = outs();
   OS << vlang::getVlangToolFullVersion("vlang-format") << '\n';
@@ -59,14 +65,14 @@ int main(int argc, const char **argv) {
   if (Help)
     cl::PrintHelpMessage();
 
-  // if (DumpConfig) {
-  //   std::string Config =
-  //       clang::format::configurationAsText(clang::format::getStyle(
-  //           Style, FileNames.empty() ? AssumeFilename : FileNames[0],
-  //           FallbackStyle));
-  //   llvm::outs() << Config << "\n";
-  //   return 0;
-  // }
+  if (DumpConfig) {
+    std::string Config =
+        vlang::format::configurationAsText(vlang::format::getStyle(
+            Style, FileNames.empty() ? AssumeFilename : FileNames[0],
+            FallbackStyle));
+    llvm::outs() << Config << "\n";
+    return 0;
+  }
 }
 
 #if 0

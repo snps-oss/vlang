@@ -6,7 +6,7 @@ add_llvm_executable(vlang-format
 
 target_link_libraries(vlang-format
   vlangBasic
-#   clangFormat
+  vlangFormat
 #   clangLex
 #   clangRewriteCore
 #   clangTooling
